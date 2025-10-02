@@ -14,6 +14,9 @@ func _ready():
             host = a.substr(7)
         elif a == "--client":
             client_mode = true
+    # Allow forcing client mode from the environment to avoid CLI parsing issues on some shells
+    if OS.get_environment("GODOT_FORCE_CLIENT") == "1":
+        client_mode = true
     var is_headless := (DisplayServer.get_name() == "headless") or OS.has_feature("headless") or OS.has_feature("server")
     if client_mode:
         _start_client()
