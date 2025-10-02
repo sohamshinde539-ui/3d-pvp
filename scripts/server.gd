@@ -8,7 +8,8 @@ func _ready():
     for a in OS.get_cmdline_args():
         if a.begins_with("--port="):
             port = int(a.substr(7))
-    if OS.has_feature("headless"):
+    var is_headless := (DisplayServer.get_name() == "headless") or OS.has_feature("headless") or OS.has_feature("server")
+    if is_headless:
         print("[Server] Starting headless server on port %d" % port)
         var peer := ENetMultiplayerPeer.new()
         var err := peer.create_server(port, max_clients)
