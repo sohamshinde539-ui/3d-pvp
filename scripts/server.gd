@@ -17,7 +17,7 @@ func _ready():
             push_error("[Server] Failed to start server: %s" % err)
             get_tree().quit(1)
             return
-        var mp = get_tree().multiplayer
+        var mp = get_tree().get_multiplayer()
         mp.multiplayer_peer = peer
         mp.peer_connected.connect(_on_peer_connected)
         mp.peer_disconnected.connect(_on_peer_disconnected)
