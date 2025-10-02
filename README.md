@@ -36,3 +36,8 @@ Receive-Job -Name 'godot-client-3d-pvp' -Keep | Select-Object -Last 50
 - The server listens on `--port` (default 9000). Change via `./scripts/run_server.ps1 -Port 1234`.
 - Client mode is built into `scripts/server.gd` (pass `--client` and optional `--host`, `--port`).
 - Main scene is `res://scenes/Main.tscn`. Logic lives in `res://scripts/server.gd`.
+
+## Web preview (GitHub Pages)
+- On every push to `main`, GitHub Actions will export a Web build and deploy it to GitHub Pages.
+- After the first run completes, your preview will be available at:
+  - https://sohamshinde539-ui.github.io/3d-pvp/
